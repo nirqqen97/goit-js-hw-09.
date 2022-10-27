@@ -42,6 +42,7 @@ const timer = {
         this.intervallId = setInterval(()=>{
             const deltaTime = dateSelected - Date.now()
             if (deltaTime < 0) {
+                refs.btnStartRef.disabled = false;
                 return
             }
             const convertedTime = convertMs(deltaTime)
@@ -57,6 +58,8 @@ const date = new Date();
 refs.btnStartRef.addEventListener('click',onsStartClick);
 function onsStartClick(e) {
    timer.start()
+   refs.btnStartRef.disabled = true;
+
     
 }
 
