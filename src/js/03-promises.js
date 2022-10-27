@@ -21,12 +21,13 @@ function onHandleClick(e) {
 for (let i = 0; i < amountVal; i++) {
   // ----------тут должен быть создание промисов наверное уже завтра закончу
   createPromise(i, delayVal).then(({ position, delay }) => {
+    
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
+    Notify.success(`✅ Fulfilled promise ${position+1} in ${delay}ms`)
   })
   .catch(({ position, delay }) => {
     console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-    Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    Notify.failure(`❌ Rejected promise ${position+1} in ${delay}ms`);
 
   });
   delayVal += stepVal;
